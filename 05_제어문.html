@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>제어문</h1>
+    <div id="demo"></div>
+    <script>
+        /*
+            - 조건문: if, switch~case
+            - 반복문: for, while, do~while
+            - break, continue
+        
+            */
+        var uname ="홍길동";
+        var kor =100,eng=95,mat=100;
+        var total=kor_mat+eng;
+        var aver=parseInt(total/3);
+
+        //문제1) 국어점수의 학점을 구하시오(A,B,C,D,F학점)
+        var korHak ="";
+        switch(kor){
+            case kor=100 :  korHak="A"; break;
+            case kor>90 : korHak="B";break;
+            case kor>80 : korHak="C";break;
+            case kor>70 : korHak="D";break;
+            default : korHak="F"; break;
+         }
+
+
+        //문2) 평균을 기준으로 과락을 구하시오(합격,재시험,불합격)
+        var gwamok;
+        if(gwamok<aver){
+            document.getElementById("demo").innerHTML="불합격";
+        }else if(gwamok=aver){
+            document.getElementById("demo").innerHTML="재시험";
+        }else{
+            document.getElementById("demo").innerHTML="합격";
+        }
+
+        //문3) 평균10점당 * 한개씩
+        //문4) 평균 95점이상 장학생
+        //문5) 위의 데이터값을 문자열 변수에 모두 모아서
+        //      테이블로 작성한 후 id=demo에 출력하시오
+    </script>
+</body>
+</html>

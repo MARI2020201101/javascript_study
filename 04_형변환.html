@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>형 변환하기</h1>
+    <div id="demo"></div>
+<script>
+    //1)숫자형 변환
+    document.write(Number(true));          // returns 1
+    document.write(Number(false));         // returns 0
+    document.write(Number("10"));         // returns 10
+    document.write(Number("  10"));        // returns 10
+    document.write(Number("10  "));        // returns 10
+    document.write(Number(" 10  "));       // returns 10
+    document.write(Number("10.33"));       // returns 10.33
+    document.write(Number("10,33"));       // returns NaN
+    document.write(Number("10 33"));       // returns NaN
+    document.write(Number("John"));        // returns NaN
+
+    document.write("<br>");
+    //2)문자형 변환
+    document.write(parseInt("10"));         // returns 10
+    document.write(parseInt("10.33"));      // returns 10
+    document.write(parseInt("10 20 30"));   // returns 10
+    document.write(parseInt("10 years"));   // returns 10
+    document.write(parseInt("years 10"));   // returns NaN 
+
+    //isNaN() : not a number 입니까?
+    //Number가 아니면 true 반환. 
+    //alert(isNaN(123));
+    //alert(isNaN('123'));
+
+    var a = 10;
+    var b = 20;
+    var c = eval("a+b");
+    alert(c);
+    //eval: 문자열로 구성된 값을 실제로 연산해서 변환한다.
+    //안에 들어있는 값을 그대로 실행
+    
+</script>
+
+</body>
+</html>

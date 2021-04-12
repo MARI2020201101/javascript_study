@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    document.write(5-3 + "<hr>");
+    document.write(5/3);
+    document.write("<br>");
+    document.write("<hr>");
+
+
+    //문제) 2021이 윤년인지 확인하시오
+    var year = 2021;
+    if(year%4==0 && year%100!=0 || year%400 ==0){
+        document.write("윤년입니다");
+    }else{
+        document.write("윤년이 아닙니다");
+
+    }
+
+    //문제2) 세개의 수중에서 가장 큰 값 구하기
+    var a=3,b=5,c=7;
+    var max = (a>b)? b:a;
+    max = (max<c)? c: max;
+    document.write("max : " + max +"<hr>");
+
+    //증감연산자
+    var x = 10, y = 10;
+    //var p = ++x;
+   // var q = y--;
+    document.write("x : "+ x + "<hr>");
+    document.write(x + "<hr>");
+    document.write("y : "+ y + "<hr>");
+    var p = ++x;
+    var q = y--;
+    document.write("p : "+ p + "<hr>");
+    document.write("q : "+ q + "<hr>");
+  
+</script>
+</body>
+</html> 

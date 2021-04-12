@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>html 본문영역</h1>
+    <div id="demo"></div>
+    <script>
+        /*
+            1) javascript는 Object로 구성되어 있다. 
+            ----> 이미!!! 오브젝트가 만들어져있다...!!!그래서 그냥 끌어다쓰면된다(헉...)
+                    브라우저에서 이미 제공하고 있다 - (놀라움 - )
+                    자바스크립트에서 이미!! 객체화해서 지원해준다
+                    잘 사용만 해주면 된다...헐....OoO
+
+                - Object = property(멤버변수)+method(함수)로 구성
+                - javascript Object 계층도.
+                    - 최상위 객체 : window(객체명 생략가능)
+                        ex)window.status ->window라는 오브젝트의 status라는 멤버변수 불러오기
+                            window.alert() -> window라는 오브젝트의 alert라는 함수 불러오기
+
+
+        */
+        //window.alert("hi");
+        //alert("hello");//window생략가능
+        //alert(123);
+        //alert('hihi');//따옴표 한개도 오케이
+
+        //alert("서울\n제주")
+        //alert("\"");
+        //alert("\"\"");
+        //alert("'");
+        //alert('"');//엇갈려서 쓰면됨. 
+        
+        //flag = window.confirm("삭제하시겠습니까?");
+        //alert(flag); //true확인, false취소         
+
+
+        /*
+            2) 변수의 자료형이 var만 있다
+            대입되는 값의 형태에 따라 자동으로 변수의 자료형이 결정됨
+            변수를 선언하지 않아도 변수를 사용할 수 있다
+        */
+       var name ="mari";
+       var age =25;
+       height=159.5;//var 생략가능
+       //alert(name+ age+ height)
+
+        var str="";
+        str+= "이름 :";
+        str+= name;
+        str +="\n 나이 : ";
+        str += age;
+        //alert(str);
+
+        /*
+        중간중간 에러확인하기 -> alert심어서 ㅎ 
+        f12열어서 콘솔창확인. front단 에러잡기
+        오류발생시 웹브라우저에서 개발자모드(F12)로 전환하고 수정한다
+        */
+
+        new Date();//날짜데이터 얻어올때
+        var now = new Date();
+        var cars=[]; //배열선언
+
+        //window.print(); //인쇄상자불러오기
+
+        /*
+            3) Document 객체
+            javascript가 css와 html의 중간다리역할을 하면서- 중개자 역할
+            문서를 좀더 역동적으로 만들어준다
+
+            document 객체 = web페이지 문서(html)를 가리키는 객체이다. .
+            
+        */
+        document.write(123);
+
+        //자바스크립트에서도 html을 쓸수있다...어떻게?
+        //javascript에서 html tag사용시, 문자열 처리해서 사용한다
+        document.write("<hr>");//문자열로 처리해주면 됨
+        document.write("<img src='../../../mari-world/leaf.png'");
+
+        /*
+            4) 내가 원하는 위치에 출력하고 싶어!!
+        */
+
+       //순수 자바스크립트 접근하기
+       document.getElementById("demo").innerHTML="솔데스크";
+
+       //jQuery로 접근하기(라이브러리 필요)
+       //$("#demo").val("soldesk");
+       //원래는 디자이너의 편의를 위해서 등장했으나 - 현재는 벡엔드 프론트엔드 구별없이 사용(특히 ajax)
+       
+       var name ="mari";
+       var age =25;
+       var height=159.5;
+       var tb ="";
+       tb += "<table border='1'>";
+        tb +="<tr>";
+        tb += "<th> 이름 </th>";
+        tb += "<tr>";
+        tb += "<td>" +name +"</td>";
+        tb += "</table>";
+
+        document.getElementById("demo").innerHTML=tb;
+        
+</script>
+</body>
+</html>
