@@ -16,34 +16,69 @@
             */
         var uname ="홍길동";
         var kor =100,eng=95,mat=100;
-        var total=kor_mat+eng;
+        var total=kor+mat+eng;
         var aver=parseInt(total/3);
 
         //문제1) 국어점수의 학점을 구하시오(A,B,C,D,F학점)
-        var korHak ="";
-        switch(kor){
-            case kor=100 :  korHak="A"; break;
-            case kor>90 : korHak="B";break;
-            case kor>80 : korHak="C";break;
-            case kor>70 : korHak="D";break;
-            default : korHak="F"; break;
-         }
-
-
-        //문2) 평균을 기준으로 과락을 구하시오(합격,재시험,불합격)
-        var gwamok;
-        if(gwamok<aver){
-            document.getElementById("demo").innerHTML="불합격";
-        }else if(gwamok=aver){
-            document.getElementById("demo").innerHTML="재시험";
-        }else{
-            document.getElementById("demo").innerHTML="합격";
+        function korHakCal(kor){
+            var korHak ="";
+            switch(kor){
+                case kor=100 :  korHak="A"; break;
+                case kor>90 : korHak="B";break;
+                case kor>80 : korHak="C";break;
+                case kor>70 : korHak="D";break;
+                default : korHak="F"; break;
+            }
+            return korHak;
         }
+        
+
+
+        //문2) 평균을 기준으로 과락을 구하시오(합격   ,재시험,불합격)
+        function isGwarak(gwamok){
+            var result ="";
+            if(gwamok<aver){
+                result="불합격";
+            }else if(gwamok=aver){
+                result="재시험";
+            }else{
+                result="합격";
+            }
+            return result;
+        }
+        
 
         //문3) 평균10점당 * 한개씩
+        function starMaker(aver){
+            var gae = Math.floor(aver/10);
+            var star ="";
+            for(var i = 0 ; i<gae; i++){
+                star += "*";
+            }
+            return star;
+        }
+
         //문4) 평균 95점이상 장학생
+        function isJanghaksaeng(uname, aver){
+            var result="";
+            if(aver>=95){
+                result = uname + " 님은 장학생입니다."
+            }else{
+                result = uname + " 님은 일반학생입니다."
+            }
+            return result;
+        }
         //문5) 위의 데이터값을 문자열 변수에 모두 모아서
         //      테이블로 작성한 후 id=demo에 출력하시오
+        var str = "";
+        str += "국어 학점 : " + korHakCal(kor) ;
+        str += '<br>국어 결과 : ' + isGwarak(kor); 
+        str += "<br>수학 결과 : " + isGwarak(mat); 
+        str += "<br>영어 결과 : " + isGwarak(eng); 
+        str += "<br>평균결과 : " + starMaker(aver);
+        str += "<br>장학생 여부 : " +  isJanghaksaeng(uname, aver);
+        document.getElementById("demo").innerHTML=str;
+        
     </script>
 </body>
 </html>

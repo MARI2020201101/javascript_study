@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>성적프로그램</h1>
+    <div id="demo"></div>
+    <script>
+        //문제) 5명 학생의 평균, 등수, 과락, 10점당 * 한개씩, 장학생여부
+        // 테이블 작성해서 id=demo에 출력하기
+
+        var uname= ["라일락","진달래","개나리","무궁화","홍길동"];
+        var kor= [100, 50, 95, 80, 60];
+        var eng= [100, 55, 95, 85, 40];
+        var mat= [100, 60, 35, 90, 30];
+        var size = uname.length;
+        var aver=[0,0,0,0,0];
+        var rank=[1,1,1,1,1];
+        var star= ["","","","",""];
+        var janhaksaeng=["","","","",""];
+        var totalAver=0;
+        var isGwarak = ["","","","",""];
+        //평균
+        for(var i =0; i<size;i++){
+            aver[i]=parseInt((kor[i]+eng[i]+mat[i])/3);
+        }
+        //등수
+        for(var i=0; i<size; i++){
+            for(var j=0; j<size; j++){
+                if(aver[i]>aver[j]){
+                    rank[j]++;
+                }
+            }
+        }
+        //과락
+        for(var i =0 ; i<size;i++){
+            totalAver+= aver[i];
+        }
+        totalAver/=size;
+        for(var i =0 ; i<size;i++){
+            if(aver[i]<totalAver){
+                isGwarak[i]="과락o";
+            }else{
+                isGwarak[i]="과락x";
+            }
+        }
+        
+
+        //별 갯수 
+        for(var i =0; i<size;i++){
+            var gae = aver[i]/10;
+            for(var j =0; j<gae;j++){    
+                star[i]+= "*"; 
+            }
+        }
+
+        //장학생  
+        for(var i =0; i<size;i++){
+            if(aver[i]>totalAver){
+                janhaksaeng[i]=uname[i] + " 님은 장학생입니다."
+            }else{
+                janhaksaeng[i] = uname[i] + " 님은 일반학생입니다."
+        }   
+        }
+
+        document.write(aver);
+        document.write("<br>");
+        document.write(rank);
+        document.write("<br>");
+        document.write(star);
+        document.write("<br>");
+        document.write(janhaksaeng);
+        document.write("<br>");
+        document.write(totalAver);
+        document.write("<br>");
+        document.write(isGwarak);
+        document.write("<br>");
+        document.write("<br>");
+        
+        var result ="";
+        result+="<table border='1'>";
+        result +="<tr>";
+        result+="<th>이름</th>";
+        result+="<th>국어</th>";
+        result+="<th>영어</th>";
+        result+="<th>수학</th>";
+        result+="<th>평균</th>";
+        result+="<th>등수</th>";
+        result+="<th>별점</th>";
+        result+="<th>장학생여부</th>";
+        result+="<th>과락여부</th>";
+        result +="</tr>";
+        for(i=0;i<size;i++){
+            result +="<tr>";
+            result+="<td>"+uname[i]+"</td>";
+            result+="<td>"+kor[i]+"</td>";
+            result+="<td>"+eng[i]+"</td>";
+            result+="<td>"+mat[i]+"</td>";
+            result+="<td>"+aver[i]+"</td>";
+            result+="<td>"+rank[i]+"</td>";
+            result+="<td>"+star[i]+"</td>";
+            result+="<td>"+janhaksaeng[i]+"</td>";
+            result+="<td>"+isGwarak[i]+"</td>";
+            result +="</tr>";
+        }
+        result+="</table>";
+        document.getElementById("demo").innerHTML=result;
+    </script>
+</body>
+</html>

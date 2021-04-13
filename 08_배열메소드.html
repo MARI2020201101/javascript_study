@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배열관련 메소드</h1>
+    <div id="demo"></div>
+    <div id="demo2"></div>
+    <div id="demo3"></div>
+    <div id="demo4"></div>
+    <div id="demo5"></div>
+    <div id="demo6"></div>
+    <div id="demo7"></div>
+    <div id="demo8"></div>
+    <div id="demo9"></div>
+
+
+
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+var fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo2").innerHTML = fruits2.join(" * ");
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo3").innerHTML = fruits;
+fruits.pop();
+document.getElementById("demo4").innerHTML = fruits;
+//pop은 마지막 요소를 꺼내준다.
+fruits.pop();
+document.getElementById("demo5").innerHTML = fruits;
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi");
+document.getElementById("demo6").innerHTML = fruits;
+//push는 요소를 넣는다
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift(); 
+document.getElementById("demo7").innerHTML = fruits;  
+//shift는 맨앞의 요소를 없애줌( 왼쪽이동 한칸씩)
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon");
+document.getElementById("demo8").innerHTML = fruits;  
+//unshift는 맨 앞(왼쪽)에 요소 추가
+
+    </script>
+</body>
+</html>

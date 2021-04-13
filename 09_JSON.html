@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <script>
+        /*
+        1) XML문법 
+            - 커스텀태그 기반
+            - 여는태그- 닫는태그로 구성
+            - 환경설정파일 작성, 안드로이드 기반 앱 개발시 view단 구성할 때 많이 이용
+            - <radio></radio>안드로이드~~태그<checkbox></checkbox>
+            - 예를 들어...
+                <database>
+                    <url>...</url>
+                </database>
+                이런 커스텀 태그를 가지고 있는 라이브러리를 활용
+        
+        2)JSON문법
+            - javascript Object Notation
+            - 댓글 더보기
+            - AJAX, NoSQL 등에서 주로 사용되는 포맷
+            - 배열을 객체화
+            - 키: 값으로 데이터가 구성되어 있음
+            ex) {"driver": "~~", "username":"system","password":1234}
+
+        */
+        /**
+         * url을 분석할 수 있어야 해~~
+         * url이 계속 바뀐다는 것?? = 새로운 문서를 request한다는 것
+         * response 방식 
+         *      1) 페이지 단위로. 통째로 전체 다 주기(url변화) 
+         *      2) 일부분만 ~ (url변화x)
+         * 일부분만 데이터를 준다 = 속도가 훨씬 빠르다 
+         * 특히 무선인터넷- 가져오는 데이터 양에 따라서 요금이 달라진다(동영상 용량 큰것 생각하면.. 모바일에서는 잘 안누르게 되지요)
+         * 
+         
+         */
+        
+         var person=["John","Doe","Ali"];
+         document.write(person.length+"<hr>");
+         document.write(person[0]);
+         document.write(person[1]);
+         document.write(person[2]);
+         document.write("<br>");
+         document.write("<hr>");
+         person.forEach(function(p){
+            document.write(p+"<br>");
+         });
+
+         person["fName"]="john";
+         person["lName"]="Doe";
+         person["age"]= 24;
+         person.filter(function(p){
+            return p.fName;
+         });
+         document.write(person);
+         document.write(person["fName"]);
+         document.write("<hr>");
+         document.write(person.lName);
+
+
+         var persons=[
+             {firstName:"John", lastName:"Doe", age:16},
+             {firstName:"Ali", lastName:"Express", age:26},
+             {firstName:"Momo", lastName:"Didi", age:36}
+         ];
+         document.write("<hr>");
+         document.write(persons);
+         document.write("<hr>");
+         document.write(persons.length);
+         persons.forEach(function(p){
+            document.write(p.firstName);
+            document.write(p.lastName);
+            document.write(p.age);
+            document.write("<hr>");
+         });
+         for(var i =0 ; i<persons.length; i++){
+             document.write(persons[i].firstName);
+             document.write(persons[i].lastName);
+            document.write(persons[i].age);
+            document.write("<hr>");
+         }
+
+        var firstNames = persons.map(function(p){
+            return p.firstName;
+         });
+         persons.forEach(function(p){
+            document.write(JSON.stringify(p));
+         });
+         document.write("<hr>");
+         document.write(JSON.stringify(firstNames));
+
+         var person = '{"firstName":"Frank","lastName":"Anne"}';
+         document.write(JSON.parse(person));
+         document.write("<p>-----------------------------------------------------</p>");
+
+         var persons2 = persons.filter(p=>p.firstName.length>3);
+         document.write(JSON.stringify(persons2));
+         document.write("<hr>");
+         var persons3 = persons.filter(p=>{return p.age>16});
+         document.write(JSON.stringify(persons3));
+         persons.map()
+
+         var myObj={
+            "name":"John",
+            "age":30,
+            "cars":["Ford","BMW","Fiat"]
+         };
+         document.write(myObj);
+         document.write(JSON.stringify(myObj));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>함수</h1>
+    <script>
+        /**
+         * 함수(method, function)
+         * - 함수 정의하기 -> 함수 호출하기
+         * - 함수의 리턴값은 존재하지만 리턴 형은 없다(type굳이 자바처럼 쓰지 않음)
+         * - 매개변수(parameter)의 type선언하지않음~~!!
+         * 따라서 - function(a){}라고만 쓴다
+         *          function(var a){}라고 쓰지 않음!!
+         * 
+         * 방법) function doSomethig(){}
+         * --------------------------------------------------------------
+         * */
+        //함수 정의하기
+        function test(){
+            alert("새로운 함수~");
+        }
+        function abs(number){
+            alert(Math.abs(number));
+        }
+        function max(n1,n2,n3){
+            alert(Math.max(n1,n2,n3));
+        }
+        function count(n1,n2){
+            var result =0;
+            for(i=n1;i<n2;i++){
+                if(i%3==0){
+                    result++;
+                }
+            }return result;
+        }
+        function leap(year){
+            if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            {return "윤년입니다"}
+            else{return "윤년이 아닙니다"};
+        }
+
+        function fact(num){
+            if(num==0){
+                return 1;
+            }else{
+                return (num*fact(num-1));
+            }   
+        }
+        //함수 호출하기
+        test(); 
+        abs(-3);
+        max(7,8,9);
+        
+        //리턴값 있는 함수
+        var result = count(1,100);
+        alert(result);
+        alert(leap(2021));
+
+        //재귀함수호출(내가 나를 불러요)
+        result = fact(4);
+        alert(result);
+        </script>
+</body>
+</html>
