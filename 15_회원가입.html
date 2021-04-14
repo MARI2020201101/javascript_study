@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form name="memform" id="memform" onsubmit="return validate()">
+        <input type="button" value="버튼1" onclick="test1()">
+        <input type="button" value="버튼2" onclick="test2(5,7)">
+        <input type="button" value="버튼3" onclick="test3('KOREA')">
+        <input type="button" value="버튼4" onclick="test2(6,8)">
+        <hr>
+        <!--
+            Frontend (UI , View)단에서 서로다른 문법간의 데이터를 전달하기위해서
+            javascript,jQuery를 이용
+            데이터 유효성 검사
+        -->
+        <span><strong>아이디 :</strong></span>
+        <input class="line" type="text" id="username" name="username">
+        <input type="button" onclick="getId()" value="id중복확인">
+        <input type="button" onclick="setId()" value="setId하기">
+        <br>
+        <span><strong>비밀번호 :</strong></span>
+        <input type="password" name="password" id="password">
+        <br>
+        <span><strong>주민번호 :</strong></span>
+        <input type="text" name="jumin1" id="jumin1" size="6" maxlength="6" onkeydown="moveCursor()">
+        -
+        <input type="text" name="jumin2" id="jumin2" size="7" maxlength="7">
+        <br>
+        <span><strong>약관동의 :</strong></span>
+        <input type="checkbox" name="agree" id="agree">
+        <br>
+        <input type="submit" value="가입하기">
+        <input type="button" value="가입하기2">
+        <input type="reset" value="취소하기">
+
+    </form>
+   <script>
+        function test1(){
+            alert('버튼 1 클릭됨');
+        }
+        function test2(a,b){
+            return alert(a+b);        }
+        function test3(str){
+            alert(str);
+        }
+        function getId(){
+            var username = document.getElementById("username").value;
+            var memform = document.memform;
+            //alert(username)
+            console.log(memform);
+            console.log(memform.username);
+            console.log(memform.username.value);
+            var username2 = document.getElementsByTagName("input")[4];//컬렉션 반환
+            console.log(username2);
+            //alert(username2.value);
+            var username3 = document.getElementsByTagName("input")[4].value;
+            //alert(username3);
+            alert(document.getElementsByClassName("line"))
+            console.log(document.getElementsByClassName("line"));
+        }
+        function setId(){
+            var str = "soldesk";
+            //document.getElementById("username").value=str;
+            //document.memform.username.value=str;
+            document.getElementsByTagName("input")[4].value=str;
+            
+        }
+        function moveCursor(){
+            
+            //1)주민번호 앞칸의 입력값 가져오기
+            var jumin1 = document.getElementById("jumin1").value;
+            
+            //2)jumin1의 변수값 글자갯수가 6개라면 커서를 id = jumin2으로 이동
+            if(jumin1.length ==6 ){
+                document.getElementById("jumin2").focus();
+            }
+        }
+
+        function validate(){
+            //유효성 검사를 할때 생각해야 할 시나리오 작성하기
+
+            //1) 아이디 : 글자수 8~12자 사이. 
+
+            //2) 비밀번호 : 글자수 5~10 사이
+            //3) 주민번호 : 숫자타입. 개수 6 / 숫자타입. 개수 7
+            //4) 약관동의 : 동의체크여부 확인 
+        }
+    </script>
+</body>
+</html>

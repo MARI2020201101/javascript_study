@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * var str = "Please locate where 'locate' occurs!";
+            var pos = str.indexOf("locate");
+            var pos = str.lastIndexOf("John");
+            var pos = str.search("locate");
+
+            var str = "Apple, Banana, Kiwi";
+            var res = str.slice(7, 13);       //Banana
+            var res = str.substring(7, 13);   //Banana
+            var res = str.substr(7, 6);       //Banana
+
+            str = "Please visit Microsoft!";
+            var n = str.replace("Microsoft", 
+            var n = str.replace("Microsoft", "W3Schools");
+
+            var text1 = "Hello World!";       // String
+            var text2 = text1.toUpperCase();  // text2 is text1 converted to upper
+
+            var text1 = "Hello World!";       // String
+            var text2 = text1.toLowerCase();  // text2 is text1 converted to lower
+
+            var text1 = "Hello";
+            var text2 = "World";
+            var text3 = text1.concat(" ", text2);
+            var str = "       Hello World!        ";
+            str.trim();
+
+            var str = "HELLO WORLD";
+            str.charAt(0);            // returns H
+
+            var txt = "a,b,c,d,e";   // String
+            txt.split(",");          // Split on commas
+            */
+
+            //regular Expression : 모든 언어에서 공통으로 표현할 수 있는 값들. 
+            //java, javascript, c+, python..언어를 가리지 않는다-
+            /**
+             * var str = "       Hello World!        ";
+                alert(str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ''));
+                
+                trim을 사용하지 않고 정규표현식으로 위와 같이 공백제거를 할 수도 있다...
+                하지만이렇게까지 안하겠지~~!(제발 !)ㅜ▽ㅜ*/
+
+        var str ="            Hello World!   ";
+        alert(str.trim());
+        alert(str);
+        alert(str.replace(" ",""));
+    </script>
+</body>
+</html>

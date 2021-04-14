@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--<body onload="alert('hi')" onunload="alert('잘가~!')">-->
+<body>
+    <h1>자바스크립트 이벤트</h1>
+    <form id="myform" action="ok.jsp" onsubmit="return true">
+    <!-- 
+        onsubmit()은 해당 폼이 서버로 전송될때- 발생되는 이벤트이다
+        특징 : 리턴값을 가진다!
+        리턴값이 true 일때만 해당 폼이 서버로 날라간다
+        전송하고싶지 않을때는? false를 주면된다!
+        어떻게!!!!!!?!!!
+        return false
+
+    -->
+        <input type="button" onclick="alert('button입니다')" value="btn1"/>
+        <input type="button" onclick="location.href='http://www.songnisan.net/?sub=2&s_code=4'" value="btn2"/>
+        <input type="button" onclick="myfuncion()" value="btn3">
+        <input type="button" value="마우스"
+            onmouseover="alert('마우스오버')"
+            onmouseout="alert('마우스아웃')">
+            <hr>
+        <input type="text" onkeydown="alert('키보드누름')">
+        <br>
+        <textarea rows="5" cols="10" onkeydown="alert('키보드누름')"></textarea>
+        <hr>
+        <select onchange="alert(value)">
+            <option value="서울">서울</option>
+            <option value="부산" selected>부산</option>
+            <option value="제주">제주</option>
+        </select>
+        <!--커서 관련 이벤트: 입력상자에 커서가 들어왔을때(onfocus)
+                                입력상자에서 커서가 나갔을때(onblur)-->
+        <br>
+       <input type="text" onfocus="alert('온포커스')" >
+       
+        <!--
+            location : 페이지 이동
+            window.location.href = "페이지 주소"
+            window는 생략가능
+            href도 생략가능
+            location.href=""
+            location=""
+        -->
+        <button >submit</button> 
+        <!--button 기본 type은 submit임-->
+        <input type="image" src="../imgs/gear.png">
+        <!--image 도 기본 type이 submit임.. 오오-->
+        
+        
+    </form>
+    <script>
+        /*
+        자바스크립트는 주로 이벤트를 발생시킨 후 - 함수를 호출시킴으로써 실행한다!!
+        Event 발생 -> javascript가 action! 
+
+        기본적 이벤트들 : onchange, onclick, onmouseove, onmouseout, onkeydown, onload...
+        프론트 단은 벡단과 다르다!!
+        비절차적에 가깝다
+        벡단은 그냥 슈루루~ 절차적으루 가는데
+        프론트단은 뭔가 이벤트가 발생하면 - 반응react을 해주어야 함
+        그렇다구 전부 벡단으로 해결할 순없어... 서버를 왔다갔다 하는 시간이 넘 드니깐
+        모바일의 영향도 크다!
+
+        [다양한 이벤트들]
+        onchange 무언가 다른 객체로 바뀌었을때
+        onclick html element를 클릭했을때
+        onmouseover 해당 html element 에 마우스가 올라왔을때
+                    (hover랑 비슷한듯ㅎ)
+        onmouseout 해당 html element로부터 마우스가 떨어져나갔을때
+        onkeydown 유저가 키보드 눌렀을때
+                    더 세분화할 수도 있음. onkeydown->onkeypress->onkeyup
+        onload 브라우저가 페이지를 load하는 것을 끝냈을때.
+                 메모리에 올리다
+                 페이지를 가져오다
+                 html document 단위로 생각 - 
+                 다른브라우저로 ctl tab해서 옮겨가면 -> onunload
+        */
+
+        function myfuncion(){
+            document.write("hostname"+window.location.hostname);
+            document.write("<br>");
+            document.write("host"+window.location.host);
+            document.write("<br>");
+            document.write("protocol"+window.location.protocol);
+            document.write("<br>");
+            document.write("href"+window.location.href);
+            document.write("<br>");
+            document.write("pathname"+window.location.pathname);
+            document.write("<br>");
+            document.write("this "+this.location.pathname);
+        }
+
+    </script>
+</body>
+</html>
