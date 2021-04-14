@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 변수의 유효범위(scope)</h1>
+    <div id="mydiv"></div>
+    <button type="button" id="btn1" onclick="test1()">버튼1</button>
+    <button type="button" id="btn2" onclick="test2()">버튼2</button>
+    <script>
+        /*
+        자바스크립트의 scope범위
+        1) Local scope( 지역변수 )
+         : function 내에 선언된 변수
+        2) Global scope( 전역변수 )
+         : function 밖에서 선언된 변수. 위치는 상관없다!!!(놀라움...)
+         
+         ---- 실험결과:
+            함수를 어느위치(script태그 안에서)에서 부르냐에 따라 달라졌다   
+        */
+       var one="하나";
+
+       function test1(){
+           alert(one);
+           alert(two);
+       }
+
+       test1();
+       function test2(){
+           alert(one);
+           alert(two);
+           alert(username);
+           var username="test2";
+           alert(username);
+           //어디서 부르냐에 따라서 undefind등등뜬다
+       }
+       var two ="둘";//전역scope라서 위치가 상관없다!! 신기하네~
+       test1();
+
+    </script>
+</body>
+</html>

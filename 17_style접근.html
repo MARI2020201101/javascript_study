@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mydiv{
+        background-color: aquamarine;
+        border: 1px solid gray;
+        position:relative;
+        left:20px;
+        top:10px;
+        width:200px;
+        height: 100px;
+        z-index: -1;
+    }
+</style>
+<body>
+    <h1>자바스크립트에서 스타일 접근하기</h1>
+    <div id="mydiv" >대한민국</div>
+    <button id="btn1" onclick="test1()">div변경버튼</button>
+    <button id="btn2" onclick="test2(this)">img변경버튼</button>
+    <img src="../imgs/gear-gray.png" id="myimg" >
+<script>
+    function test1(){
+        var mydiv = document.getElementById("mydiv");
+        //mydiv.style.backgroundColor = "hotpink";
+        mydiv.setAttribute("style","background-color:hotpink;");
+        mydiv.style.padding="20px";
+        //mydiv.style.width="100px";
+        mydiv.style.textAlign="center";
+        mydiv.style.transition="1s";
+        mydiv.style.border="3px solid gray";
+        alert( mydiv.style);
+        console.log(mydiv.style);
+        //jQuery에서 css접근하기
+        //$("#mydiv").css("background-color","hotpink");
+    }
+
+    function test2(obj){
+        document.getElementById("myimg").src="../imgs/gear.png";
+    }
+</script>
+</body>
+
+</html>

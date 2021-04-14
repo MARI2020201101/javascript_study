@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myform" name="myform" onsubmit="return test5(this)">
+        <input type="button" id="btn1" name="btn1" value="버튼1" onclick="test1()">
+        <input type="button" id="btn2" name="btn2" value="버튼2" onclick="test2(this)">
+        <input type="button" id="btn3" name="btn3" value="버튼3" onclick="test3(this.value)">
+        <input type="button" id="btn4" name="btn4" value="버튼4" onclick="test3(this.form)">
+        <button type="submit" id="btn5" name="btn5">전송하기</button>
+    </form>
+    <script>
+        /**
+         this 란??
+         - 자기 스스로를 가리킴
+         - 폼 관련한 요소에서만 사용가능
+            ex) <a href = "~~" onclick="alert(this)"> <- 틀린문법!
+        */ 
+       function test1(){
+           var myform = document.getElementById("myform");
+           var btn1= document.getElementById("btn1");
+           alert(btn1.value);
+           alert(myform.btn1.value); //조금비추
+       }
+       function test2(obj){
+            alert(obj);
+            console.log(obj);
+            console.log(obj.value); //나자신- this를 넘긴다-
+       }
+       function test3(val){
+            alert(val);
+       }
+       function test4(f){
+            alert(f); //해당 element가 속해있는 form을 넘겨받음
+            console.log(f);
+       }
+       function test5(f){
+          
+           console.log(f);
+           alert(f);
+           console.dir(f);
+           return false;
+       }
+    </script>
+</body>
+</html>

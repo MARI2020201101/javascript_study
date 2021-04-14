@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>회원가입</h1>
-    <form name="memform" id="memform" onsubmit="return validate()">
+    <form name="memform" id="memform" action="ok.jsp" onsubmit="return validate()">
         <input type="button" value="버튼1" onclick="test1()">
         <input type="button" value="버튼2" onclick="test2(5,7)">
         <input type="button" value="버튼3" onclick="test3('KOREA')">
@@ -41,7 +41,7 @@
         <input type="checkbox" name="agree" id="agree">
         <br>
         <input type="submit" value="가입하기">
-        <input type="button" value="가입하기2">
+        <input type="button" value="가입하기2" onclick="validate2()">
         <input type="reset" value="취소하기">
 
     </form>
@@ -91,10 +91,64 @@
             //유효성 검사를 할때 생각해야 할 시나리오 작성하기
 
             //1) 아이디 : 글자수 8~12자 사이. 
-
+                            /**
+                            조건 만족하지 못하면- alert띄우기 & focus()
+                            onsubmit return false
+                            */
+                var uid=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                uid=uid.trim();
+                password=password.trim();
+                if(uid==null||uid==""||password==null||password==""){
+                    alert("필수 데이터를 입력해 주십시요");
+                    return false;
+                }
+                if(!(uid.length>7&&uid.length<13)){
+                    alert("아이디는 8자에서 12자 사이여야 합니다");
+                    document.getElementById("username").focus();
+                    return false;
+                }
             //2) 비밀번호 : 글자수 5~10 사이
+                
+                if(password.length<5||password.length>10){
+                    alert("비밀번호는 5자에서 10자 사이여야 합니다");
+                    document.getElementById("password").focus();
+                    return false;
+                }
             //3) 주민번호 : 숫자타입. 개수 6 / 숫자타입. 개수 7
+                var jumin1=document.getElementById("jumin1").value;
+                var jumin2=document.getElementById("jumin2").value;
+                if(jumin1.length!=6||isNaN(jumin1)){
+                    alert("주민번호 앞자리는 6자리 숫자여야 합니다");
+                    document.getElementById("jumin1").focus();
+                    return false;
+                }
+                if(jumin2.length!=7||isNaN(jumin2)){
+                    alert("주민번호 뒷자리는 7자리 숫자여야 합니다");
+                    document.getElementById("jumin2").focus();
+                    return false;
+                }
+                
             //4) 약관동의 : 동의체크여부 확인 
+                if(document.getElementById("agree").checked==false){
+                    alert("약관에 동의해 주십시요");
+                    return false;
+                }
+                alert("회원가입 폼을 서버로 전송합니다");
+                return true;
+        }
+    
+        function validate2(){
+            var form=document.getElementById("memform");
+            alert(form);
+            console.log(form);
+            
+            //<form action="ok.jsp">와 동일한 기능의 자바스크립트 속성
+            form.action="ok.jsp";
+            
+            //<input type="submit">과 동일한 기능의 자바스크립트 함수
+            form.submit();
+
         }
     </script>
 </body>
