@@ -5,8 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<script>
+    //1) 스크롤하고자하는 이미지를 전역변수에 저장
+    var ctnt=[];
+    ctnt[0]="<img src='../imgs/devil.png' width='85'>";
+    ctnt[1]="<img src='../imgs/angel.png' width='85'>";
+    ctnt[2]="<img src='../imgs/smile.png' width='85'>";
+    ctnt[3]="<img src='../imgs/kiss.png' width='85'>";
+    ctnt[4]="<img src='../imgs/devil.png' width='85'>";
+    ctnt[5]="<img src='../imgs/angel.png' width='85'>";
+    ctnt[6]="<img src='../imgs/smile.png' width='85'>";
+    ctnt[7]="<img src='../imgs/kiss.png' width='85'>";
+
+    function start(){
+   
+        for(var i=0; i<ctnt.length;i++){
+            document.write("<div id=\"area["+i+"]\" style='position:absolute;left:"+i*90+"px;top:8px;'>");
+            document.write(ctnt[i]);
+            document.write("</div>");
+        }
+        setTimeout(scroll,3000);
+     }
+     function scroll(){
+        for(var i=0;i<ctnt.length;i++){
+            var areas = document.getElementById("area["+i+"]");
+            areas.style.left=parseInt(areas.style.left)-10 +"px";
+            console.log(areas.style.left);
+            if(areas.style.left<-90){
+                areas.style.left=90*(ctnt.length-1)+"px";
+            }
+
+        }
+        setTimeout(scroll,500);
+        var timer;
+        function killtime(){
+            clearTimeout(timer);
+        }
+        
+     }
+
+</script>
 </head>
-<body>
+<style>
+    #mydiv{
+        position:relative;
+        left:100px;
+        top:10px;
+        width: 270px;
+        height: 100px;
+        background-color: white;
+        overflow:hidden; /*영역밖숨기기*/
+    }
+</style>
     
+<body onunload="killtime()">
+    <h1>이미지 스크롤</h1>
+    <br>
+    <!--이미지가 스크롤되는 위치-->
+    <div id="mydiv" >
+        <script>
+            start();
+        </script>
+    </div>
 </body>
 </html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h1>BOM : Brower Object Model</h1>
+    <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Open modal
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+</div>
+    <script>
+        //window.open("25_디지털시계.html","popwindow","width:350,height:300");
+
+        /*
+        1) The Window Object
+        - window.open(); -> 새로운 창 띄우기.
+        - 부모window와 자식window는 독립적관계이다. 부모 창이 닫혀도 자식창은 살아있음
+        - window.close(); -> 창닫기
+        - window.open("파일명","창이름","옵션들,...")
+        - window.open()과 같은 팝업창은 모바일에서 안보이기 때문에- 잘 안쓴다!!
+        - open 이라는 함수안에 파라메터로 애초에 다른 html을 넘기고 있음 
+            = > 서로 다른 페이지이다!!!
+        */
+
+        /*
+        2) Modal창(매우중요~~)
+        - 모바일에서도 활용가능!!
+        - 부모 창과 자식 창이 한몸이다. 
+            자식창(=모달창)에서 무언가 action해주지 않으면-
+            부모창을 건드릴 수 없음.
+        - Bootstrap 모달- 같은 페이지 안에서 존재함- 걍 div안에 넣구.
+        */ 
+
+        //window.print();
+        // if(confirm("영구히 삭제됩니다.\n지울까요?")){
+        //     alert("삭제되었습니다");
+        // }else{
+        //     alert("삭제취소");
+        // }
+
+        //console.log(screen);
+
+        /*
+        3) 페이지 이동할 때
+        - window.location.href ="어쩌구url";
+        - window.location ="";
+        - location="";
+            셋 다 맞는 표현!!
+        */
+        //window.location="http://www.naver.com";
+        //location.reload();
+        //console.log(window.location);
+        /*
+        4) 뒤로 , 앞으로 가기(back이랑 go forward 함수 이용.)
+        console.log(history);
+        */
+       
+        /*
+        5) 쿠키
+         : 사용자 PC에 텍스트 형태의 자료를 저장할 수 있다. 
+        console.log(caches);
+        console.log(document.cookie);
+        - ex) 오늘 창 그만보기 : 내pc가 기억하는것이다!!
+        - ex2) 아이디 저장하기 : 체크박스 checked==true일때 쿠키에 저장
+        - ex3) 클릭한 상품 목록보기
+            등등.
+        - 보안과 관련이 없는 정보만 쿠키에 넣어야 한다!!!
+            why? ) 소스가 전부 오픈이 되기 때문이다- javascript는 클라이언트 단 언어이기 때문에 - 
+        - 각 웹 브라우저의 속성에서 삭제도 가능(예를 들면, google 개인설정에서.)
+        */
+    </script>
+</body>
+</html>
