@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{ 
+            border: 1px solid black;
+            background-color: rgb(235, 235, 235);  
+            text-align: center;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        #result{
+            text-align: right;
+        }
+
+        .txt{
+            font-weight: bolder;
+            border-color: aquamarine;
+        }
+        button{
+            border: 0px;
+            font-size: 16px;
+        }
+        table{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>미니 계산기</h1>
+    <form onsubmit="return false">
+        <table >
+            <tr>
+                <td colspan="4">
+                    <input type ="text" id="result"name="result" value="0" readonly class="txt">
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="inputData(7)">7</button></td>
+                <td><button onclick="inputData(8)">8</button></td>
+                <td><button onclick="inputData(9)">9</button></td>
+                <td><button onclick="operater('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="inputData(4)">4</button></td>
+                <td><button onclick="inputData(5)">5</button></td>
+                <td><button onclick="inputData(6)">6</button></td>
+                <td><button onclick="operater('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="inputData(1)">1</button></td>
+                <td><button onclick="inputData(2)">2</button></td>
+                <td><button onclick="inputData(3)">3</button></td>
+                <td><button onclick="operater('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="inputData(0)">0</button></td>
+                <td><button onclick="">.</button></td>
+                <td><button onclick="compute()">=</button></td>
+                <td><button onclick="operater('+')">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="backspace()">←</button></td>
+                <td colspan="2"><button onclick="cls()">clear</button></td>
+            </tr>
+        </table>
+    </form>
+<script>
+    //1) 연산에 필요한 전역변수 선언하기
+    var result = document.getElementById("result");
+    var num1;//유저가 입력한 첫번째 수
+    var num2;//유저가 입력한 두번째 수
+    var op;// 연산기호 기억하기
+
+    function inputData(data){
+        result.value+=data;
+        result.value=Number(result.value); //앞자리 0제거하기 위해서 숫자형으로 변환
+    }
+    function operater(kind){
+        //2) 선택한 연산기호를 전역변수 op에 저장
+        op=kind;
+        num1=Number(result.value); //유저가 입력한 첫번째 수. 
+        //operater가 눌렸을 때 - > 값 0으로 셋팅하고
+        cls();
+    }
+    function compute(){
+        // 두번째 수 기억하기
+        num2=Number(result.value);
+        //계산
+        result.value=eval(num1+op+num2);
+    }
+    function backspace(){
+        //글자수 1개일때->cls
+        var size = result.value.length;
+        if(size==1){
+            cls();
+            return;
+        }
+        //맨 마지막 글자 substring
+        else{
+            result.value=result.value.substring(0,result.value.length-1);
+        }
+    }
+    function cls(){
+        result.value=0;
+    }
+</script>
+</body>
+</html>

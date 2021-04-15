@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <h1>음악목록</h1>
+        <img src="../imgs/appleRed.png" id="poster" width="300px">
+        <br><br>
+        <audio id="audio1" src="../music/ost.mp3" controls></audio>
+
+    </div>
+    <br>
+    <hr>
+    <div style="margin: auto;width: 50%;">
+        <ol>
+            
+            <li><a href="javascript:loadMusic('../music/ost.mp3','../imgs/appleRed.png')">Music : ost</a></li> 
+            <li><a href="javascript:loadMusic('../music/poppop.mp3','../imgs/k1.png')">Music : poppop</a></li>
+            <li><a href="javascript:loadMusic('../music/sheis.mp3','../imgs/k2.png')">Music : she is</a></li>
+        </ol>
+
+    </div>
+    <script>
+        function loadMusic(mp3,png){
+            document.getElementById("audio1").src=mp3;
+            document.getElementById("poster").src=png;
+                 }
+    </script>
+</body>
+
+</html>

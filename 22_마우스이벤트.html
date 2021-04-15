@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border: 1px solid black;
+    }
+    div#neo,div#jayg{
+        display:none;
+    }
+    div#ryan{
+        display: block;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th onmouseover="show('r')">라이언</th>
+            <th onmouseover="show('n')">네오</th>
+            <th onmouseover="show('j')">제이지</th>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="ryan">라이언<br><img src="../imgs/k7.png" ></div>
+                <div id="neo">네오<br><img src="../imgs/k5.png" ></div>
+                <div id="jayg">제이지<br><img src="../imgs/k3.png" ></div>
+            </td>
+        </tr>
+        
+    </table>
+    <script>
+        function show(data){
+            switch(data){
+                case 'r': document.getElementById("ryan").style.display="block";
+                            document.getElementById("neo").style.display="none";
+                            document.getElementById("jayg").style.display="none";break;
+                case 'n': document.getElementById("neo").style.display="block";
+                            document.getElementById("ryan").style.display="none";
+                            document.getElementById("jayg").style.display="none";break;
+                case 'j': document.getElementById("jayg").style.display="block";
+                            document.getElementById("ryan").style.display="none";
+                            document.getElementById("neo").style.display="none";break;
+           }
+        }
+    </script>
+</body>
+</html>

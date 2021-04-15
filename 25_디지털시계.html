@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #clock{
+        background-color: black;
+        width:300px;
+        height:25px;
+        color:yellow;
+        font-weight:bold;
+        font-size:20px;
+        text-align:center;
+        border:1px solid black;
+        position: relative;
+        }
+</style>
+</head>
+<body onload="showTime()" onunload="stopTime()">
+    <h1>디지털시계</h1>
+    <div id="clock"></div>
+    <hr>
+    <input type="button" value="중지" onclick="stopTime()">
+    <input type="button" value="시작" onclick="restart()">
+    <script>
+        
+        function showTime(){
+            //문제) d값을 이용해서 날짜 정보를 아래와 같이 구성해서 id=clock에 출력하시오
+        //      2021. 04. 14 (수) PM 03:19:20
+        var d=new Date();
+        var yoyils=["일","월","화","수","목","금","토"];
+        var date2 = d.toString();
+        var yoyil = yoyils[d.getDay()];
+        var year = d.getFullYear();
+        var month = d.getMonth()+1;
+        var day =  d.getDate();
+       // var yoyil = date2.substring(0,3);
+        var time = date2.substring(16,24);
+
+        if(month<10){
+            month="0"+month.toString();
+        }
+        if(day<10){
+            day="0"+day.toString();
+        }
+        var tempTime = time.substring(0,2);
+        console.log(tempTime);
+        if(parseInt(tempTime)>12){      
+            tempTime=(parseInt(tempTime)-12);
+            if(tempTime<10){
+                tempTime="PM 0"+ tempTime.toString();
+            }else{
+                tempTime="PM "+tempTime.toString();
+            }    
+            time=time.substring(2);
+        }
+        else{
+            tempTime="AM "+tempTime.toString();
+            time=time.substring(2);
+        }
+        var str = year + ". "+month+". "+day+ " ("+yoyil+") "+tempTime+time;
+        console.log(str);
+        document.getElementById("clock").innerHTML=str;
+        timer = setTimeout(showTime,1000);    
+    }
+    var timer;//global scope
+    //서로 다른 function을 연결하기 위해서 전역변수를 만들어 공유한다.
+    //그 전역변수는 - setTimeout 이다. 얘가 clear되면 - 반복함수가 없어진다..흠흠흠
+    
+    function stopTime(){
+        clearTimeout(timer);
+    }
+    function restart(){
+        showTime();
+    }
+    </script>
+</body>
+</html>
